@@ -1,0 +1,20 @@
+{
+  "name": "musichackday2013",
+  "version": "0.0.0",
+  "homepage": "https://github.com/choochburger/musichackday2013",
+  "authors": [
+    "James Kyle <me@thejameskyle.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3"
+  }
+}
