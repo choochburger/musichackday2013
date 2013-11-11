@@ -1,6 +1,17 @@
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  font: normal 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: black;
+  color: white;
 }
 
 a {
@@ -9,4 +20,139 @@ a {
 
 .hidden {
   display: none;
+}
+
+.login {
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  height: 100px;
+  width: 100%;
+  border: none;
+  padding: 0;
+  background: #111;
+  color: white;
+  font: inherit;
+  font-size: 2em;
+  font-weight: 100;
+  cursor: pointer;
+  outline: none;
+}
+
+.login:hover {
+  background: #151515;
+}
+
+.results {
+  *zoom: 1;
+}
+
+.results::before,
+.results::after {
+  content: "";
+  display: table;
+}
+
+.results::after {
+  clear: both;
+}
+
+.item {
+  float: left;
+  width: 100%;
+}
+
+@media (min-width:  200px) { .item { width: 50% } }
+@media (min-width:  400px) { .item { width: 33.333% } }
+@media (min-width:  600px) { .item { width: 25% } }
+@media (min-width:  800px) { .item { width: 20% } }
+@media (min-width: 1000px) { .item { width: 16.666% } }
+@media (min-width: 1200px) { .item { width: 14.285% } }
+@media (min-width: 1400px) { .item { width: 12.5% } }
+
+img {
+  position: relative;
+  z-index: 1;
+  vertical-align: top;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: 150ms ease;
+     -moz-transition: 150ms ease;
+          transition: 150ms ease;
+}
+
+img:hover {
+  -webkit-transform: scale(0.9);
+     -moz-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+img.active {
+  z-index: 9998;
+  -webkit-transition-duration: 300ms;
+     -moz-transition-duration: 300ms;
+          transition-duration: 300ms;
+  -webkit-transform: scale(1.1);
+     -moz-transform: scale(1.1);
+          transform: scale(1.1);
+
+  box-shadow:
+    0 1px  1px rgba(0, 0, 0, 0.5),
+    0 2px  3px rgba(0, 0, 0, 0.5),
+    0 3px  9px rgba(0, 0, 0, 0.5);
+    0 4px 27px rgba(0, 0, 0, 0.5);
+    0 5px 81px rgba(0, 0, 0, 0.5);
+}
+
+.more {
+  background: black;
+  color: white;
+  padding: 10px;
+  font-size: 2em;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.spinner {
+  position: fixed;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  margin: -50px;
+  width: 100px;
+  height: 100px;
+  background: black;
+  border: 1px solid black;
+  border-top-color: white;
+  border-radius: 50%;
+  -webkit-animation: fade-in 200ms linear, spin 1s linear infinite;
+     -moz-animation: fade-in 200ms linear, spin 1s linear infinite;
+          animation: fade-in 200ms linear, spin 1s linear infinite;
+  box-shadow: 0 0 100px 50px black;
+}
+
+@-webkit-keyframes fade-in {
+  from { opacity: 0 }
+}
+
+@-moz-keyframes fade-in {
+  from { opacity: 0 }
+}
+
+@keyframes fade-in {
+  from { opacity: 0 }
+}
+
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg) }
+}
+
+@-moz-keyframes spin {
+  to { -moz-transform: rotate(360deg) }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg) }
 }

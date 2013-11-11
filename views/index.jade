@@ -1,5 +1,31 @@
 extends layout
 
 block content
-  p.loading Loading...
-  button.login.hidden Login
+  .app
+
+  template(type='text/x-handlebars', id='app-template')
+    {{#if loading}}
+    .spinner
+      .side.sp_left
+        .fill
+      .side.sp_right
+        .fill
+    {{/if}}
+
+    {{#if ready}}
+    .content
+      {{#unless authenticated}}
+      button(class='login') Login
+
+      {{else}}
+      .results
+        {{#if albums}}
+
+        {{#each albums}}
+        .item: img(src='{{icon}}', data-key='{{albumKey}}')
+        {{/each}}
+
+      .more Load More
+      {{/if}}
+      {{/unless}}
+    {{/if}}
